@@ -14,9 +14,15 @@ public class Phone {
         this.cell = cell;
         this.price = price;
     }
-
-    public static void main(String[] args) throws Exception {
-
+    void printInfo(){
+        System.out.println("Модель телефона: " +model);
+        System.out.println("Версія телефона: " +version);
+        System.out.println("Процесор телефона: " +memory);
+        System.out.println("Колір телефона: " +color);
+        System.out.println("Пам'ять' телефона: " +cell);
+        System.out.println("Ціна телефона: " +price);
     }
+
+    
 }
 
