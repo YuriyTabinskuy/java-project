@@ -3,30 +3,41 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int choice;
 
-        System.out.println("Оберіть категорію: ");
-        System.out.println("1. Телефон");
-        System.out.println("2. Комп'ютер");
-        System.out.println("3. Планшет");
+        do {
+            System.out.println("Оберіть категорію: ");
+            System.out.println("1. Телефон");
+            System.out.println("2. Комп'ютер");
+            System.out.println("3. Планшет");
+            System.out.println("0. Вийти");
 
-        int choice = scanner.nextInt();
+            choice = scanner.nextInt();
 
-        switch (choice) {
-            case 1:
-                printPhones();
-                break;
-            case 2:
-                printComputers();
-                break;
-            case 3:
-                printTablets();
-                break;
-            default:
-                System.out.println("Неправильний вибір.");
-        }
+            switch (choice) {
+                case 1:
+                    // Створюємо об'єкт телефону для порівняння
+                    Phone otherPhone = new Phone("SomeModel", "SomeVersion", "SomeMemory", "SomeColor", "SomeCell", 999);
+                    printPhones(otherPhone);
+                    break;
+                case 2:
+                    printComputers();
+                    break;
+                case 3:
+                    printTablets();
+                    break;
+                case 0:
+                    System.out.println("Програма завершує роботу.");
+                    break;
+                default:
+                    System.out.println("Неправильний вибір.");
+            }
+        } while (choice != 0);
+
         scanner.close();
     }
-    public static void printPhones() {
+    
+    public static void printPhones(Phone otherPhone) {
         Phone obj1 = new Phone("M2003J6B2G", "Redmi Note 9 Pro", "Snapdragon 720G", "64GB RAM", "Blue", 250);
         Phone obj2 = new Phone("SM-G988B", "Samsung Galaxy S20 Ultra", "Exynos 990", "12GB RAM", "Black", 1200);
         Phone obj3 = new Phone("iPhone 13 Pro Max", "A15 Bionic", "256GB", "Gold", "iOS", 1099);
@@ -35,38 +46,47 @@ public class Main {
         Phone obj6 = new Phone("Mi 12 Ultra", "Xiaomi", "Snapdragon 8 Gen 1", "512GB RAM", "White", 1199);
         Phone obj7 = new Phone("Galaxy Z Fold 4", "Samsung", "Exynos 2200", "512GB RAM", "Mystic Bronze", 1799);
         Phone obj8 = new Phone("iPhone SE 3", "Apple", "A15 Bionic", "128GB RAM", "Product Red", 499);
-
+        
         System.out.println("Телефон 1:");
         obj1.printInfo();
+        System.out.println(obj1.comparePhones(otherPhone));
         System.out.println();
         
         System.out.println("Телефон 2:");
         obj2.printInfo();
+        System.out.println(obj2.comparePhones(otherPhone));
         System.out.println();
         
         System.out.println("Телефон 3:");
         obj3.printInfo();
+        System.out.println(obj3.comparePhones(otherPhone));
         System.out.println();
 
         System.out.println("Телефон 4:");
         obj4.printInfo();
+        System.out.println(obj4.comparePhones(otherPhone));
         System.out.println();
 
         System.out.println("Телефон 5:");
         obj5.printInfo();
+        System.out.println(obj5.comparePhones(otherPhone));
         System.out.println();
 
         System.out.println("Телефон 6:");
         obj6.printInfo();
+        System.out.println(obj6.comparePhones(otherPhone));
         System.out.println();
 
         System.out.println("Телефон 7:");
         obj7.printInfo();
+        System.out.println(obj7.comparePhones(otherPhone));
         System.out.println();
 
         System.out.println("Телефон 8:");
         obj8.printInfo();
+        System.out.println(obj8.comparePhones(otherPhone));
         System.out.println();
+
     }
 
         //Computer
@@ -84,42 +104,51 @@ public class Main {
         System.out.println("Комп'ютер 1:");
         obj11.printInfo();
         System.out.println("Ціна комп'ютера з податком (ПДВ 20%): $" + obj11.calculatePriceWithTax(20));
+        System.out.println(obj11.comparePrice(obj11));
         System.out.println();
 
         System.out.println("Комп'ютер 2:");
         obj12.printInfo();
         System.out.println("Ціна комп'ютера з податком (ПДВ 20%): $" + obj12.calculatePriceWithTax(20));
+        System.out.println(obj11.comparePrice(obj12));
         System.out.println();
 
         System.out.println("Комп'ютер 3:");
         obj13.printInfo();
         System.out.println("Ціна комп'ютера з податком (ПДВ 20%): $" + obj13.calculatePriceWithTax(20));
+        System.out.println(obj11.comparePrice(obj13));
         System.out.println();
 
         System.out.println("Комп'ютер 4:");
         obj14.printInfo();
         System.out.println("Ціна комп'ютера з податком (ПДВ 20%): $" + obj14.calculatePriceWithTax(20));
+        System.out.println(obj11.comparePrice(obj14));
         System.out.println();
 
         System.out.println("Комп'ютер 5:");
         obj15.printInfo();
         System.out.println("Ціна комп'ютера з податком (ПДВ 20%): $" + obj15.calculatePriceWithTax(20));
+        System.out.println(obj11.comparePrice(obj15));
         System.out.println();
 
         System.out.println("Комп'ютер 6:");
         obj16.printInfo();
         System.out.println("Ціна комп'ютера з податком (ПДВ 20%): $" + obj16.calculatePriceWithTax(20));
+        System.out.println(obj11.comparePrice(obj16));
         System.out.println();
 
         System.out.println("Комп'ютер 7:");
         obj17.printInfo();
         System.out.println("Ціна комп'ютера з податком (ПДВ 20%): $" + obj17.calculatePriceWithTax(20));
+        System.out.println(obj11.comparePrice(obj17));
         System.out.println();
 
         System.out.println("Комп'ютер 8:");
         obj18.printInfo();
         System.out.println("Ціна комп'ютера з податком (ПДВ 20%): $" + obj18.calculatePriceWithTax(20));
+        System.out.println(obj11.comparePrice(obj18));
         System.out.println();
+        
         }
 
 
