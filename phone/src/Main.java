@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -154,7 +155,7 @@ public class Main {
 
         //Tablet
 
-        public static void printTablets() {
+        public static void printTablets( ) {
         Tablet obj21 = new Tablet("iPad Air", "Apple A14 Bionic", "4GB RAM", "64GB SSD", "10.9-inch Retina", 599);
         Tablet obj22 = new Tablet("Samsung Galaxy Tab S7", "Snapdragon 865+", "8GB RAM", "256GB SSD", "11-inch Super AMOLED", 649);
         Tablet obj23 = new Tablet("Microsoft Surface Pro 8", "Intel Core i5", "8GB RAM", "128GB SSD", "13-inch PixelSense", 899);
