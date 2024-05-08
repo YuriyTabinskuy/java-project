@@ -1,42 +1,46 @@
+class Phone extends Product {
+    private String color; 
+    private String network; 
 
-interface Comparable {
-    String comparePhones(Phone otherPhone);
-}
-
-public class Phone implements Comparable {
-    String model;
-    String version;
-    String memory;
-    String color;
-    String cell;
-    int price;
-
-    public Phone(String model, String version, String memory, String color, String cell, int price) {
-        this.model = model;
-        this.version = version;
-        this.memory = memory;
+    public Phone(String model, String processor, String ram, String storage, String color, int price) {
+        super(model, processor, ram, storage, price);
         this.color = color;
-        this.cell = cell;
-        this.price = price;
     }
 
-    void printInfo() {
-        System.out.println("Модель телефона: " + model);
-        System.out.println("Версія телефона: " + version);
-        System.out.println("Процесор телефона: " + memory);
-        System.out.println("Колір телефона: " + color);
-        System.out.println("Пам'ять' телефона: " + cell);
-        System.out.println("Ціна телефона: " + price);
+ 
+    public String getInfo() {
+        return "Модель: " + this.model + ", Процесор: " + this.processor + ", RAM: " + this.ram + ", Пам'ять: " + this.storage + ", Колір: " + this.color + ", Ціна: $" + this.price;
     }
 
-    @Override
-    public String comparePhones(Phone otherPhone) {
-        if (this.model.equals(otherPhone.model) && this.version.equals(otherPhone.version)) {
-            return "Телефони " + this.model + " та " + otherPhone.model + " - одна й та ж версія.";
+ 
+    public String compare(Phone otherPhone) {
+        if (this.price < otherPhone.price) {
+            return this.model + " дешевший, ніж " + otherPhone.model;
+        } else if (this.price > otherPhone.price) {
+            return this.model + " дорожчий, ніж " + otherPhone.model;
         } else {
-            return "Телефони " + this.model + " та " + otherPhone.model + " - різні версії.";
+            return this.model + " має таку саму ціну, як і " + otherPhone.model;
+        }
+    }
+    public String checkNetworkCompatibility(Phone otherPhone) {
+        if (this.network.equals(otherPhone.network)) {
+            return "Телефони сумісні за мережевою технологією.";
+        } else {
+            return "Телефони не сумісні за мережевою технологією.";
         }
     }
 
  
+    public String getColor() {
+        return color;
+    }
+    public void setColor(String color) {
+        this.color = color;
+    }
+    public String getNetwork() {
+        return network;
+    }
+    public void setNetwork(String network) {
+        this.network = network;
+    }
 }

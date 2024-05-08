@@ -1,37 +1,38 @@
-public class Tablet {
-    String model;
-    String processor;
-    String ram;
-    String storage;
-    String display;
-    int price;
+
+
+public class Tablet extends Product {
+    private String display;
 
     public Tablet(String model, String processor, String ram, String storage, String display, int price) {
-        this.model = model;
-        this.processor = processor;
-        this.ram = ram;
-        this.storage = storage;
+        super(model, processor, ram, storage, price);
         this.display = display;
-        this.price = price;
     }
-    void printInfo(){
-        System.out.println("Модель планшета: " +model);
-        System.out.println("Процесор планшета: " +processor);
-        System.out.println("Оперативна пам'ять  планшета: " +ram);
-        System.out.println("Накопичувач планшета: " +storage);
-        System.out.println("Дисплей планшета: " +display);
-        System.out.println("Ціна планшета: " +price);
+
+    public String getInfo() {
+        return "Модель: " + this.model + ", Процесор: " + this.processor + ", RAM: " + this.ram + ", Пам'ять: " + this.storage + ", Дисплей: " + this.display + ", Ціна: $" + this.price;
     }
-    public void upgradeRAM(String newRAM) {
-        System.out.println("Оновлення оперативної пам'яті...");
-        this.ram = newRAM;
-        System.out.println("Оперативна пам'ять оновлена до: " + newRAM);
+
+    public String getDisplay() {
+        return display;
     }
+
+    public void setDisplay(String display) {
+        this.display = display;
+    }
+
+    public String checkScreenSize() {
+        double threshold = 10.0;
+        double screenSize = Double.parseDouble(this.display.split("-")[0]); // Extract screen size
+        if (screenSize >= threshold) {
+            return "Великий екран";
+        } else {
+            return "Малий екран";
+        }
+    }
+    public boolean isGamingTablet() {
+
+        return this.ram.contains("8GB") && (this.processor.contains("Snapdragon") || this.processor.contains("Exynos"));
+    }
+
     
-    public void discountPrice(int discountPercentage) {
-        System.out.println("Застосування знижки...");
-        double discount = price * ((double) discountPercentage / 100);
-        price -= discount;
-        System.out.println("Ціна зі знижкою: " + price);
-    }
 }
