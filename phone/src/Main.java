@@ -51,7 +51,7 @@ public class Main {
         };
     
         for (Phone phone : phones) {
-            phone.setNetwork("SomeNetwork"); // Встановлюємо значення мережі для кожного телефону
+            phone.setNetwork("SomeNetwork"); 
             System.out.println(phone.getInfo());
             System.out.println(phone.compare(otherPhone));
             System.out.println(phone.checkNetworkCompatibility(otherPhone)); 
